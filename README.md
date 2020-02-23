@@ -2,12 +2,12 @@
 This is used to verify specific HTML features and workarounds in Awesomium in Garry's Mod.
 
 * Font 'Trebuchet MS'
-* Flexbox
-* Flexbox columns
-* Flexbox grow
-* Transitions
 * Custom select box
-* Transform
+* Flexbox _(uses the 2009 box version via webkit)_
+    * Flexbox columns
+    * Flexbox grow
+* Transitions _(via webkit)_
+* Transform _(via webkit)_
 
 # Tested operating systems
 * Windows 10 ✅
@@ -15,7 +15,23 @@ This is used to verify specific HTML features and workarounds in Awesomium in Ga
 * Mac ❓
 * Linux ❓
 
-# Expected outcome
+# Awesomium Issues
+* Doesn't implement SELECT elements fully
+    * Select elements render, but they cannot be interacted with
+* Doesn't support modern flexbox
+    * Supports 2009 flexbox (box)
+    * `display: -webkit-box;` [Read about it here](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Mixins)
+    * This is missing some features such as flex shrink (elements will not shrink below their contents size)
+* Requires webkit for transforms
+* Requires webkit for transitions
+* Doesn't support javascript template strings, default parameter values, `let`
+* Doesn't properly implement `.toLocaleDateString` (doesn't seem to support any parameters)
+* Doesn't support inline SVGs
+
+
+# In-game tests
+
+## Expected outcome
 UI elements<br>
 ![Elements](https://i.imgur.com/KpWLIax.gif)
 
@@ -23,7 +39,7 @@ Custom select element usage<br>
 ![Element select](https://i.imgur.com/NCWK71p.gif)
 
 
-# User instructions
+## User instructions
 ```
 Could you type `!htmltest` into chat.
 
