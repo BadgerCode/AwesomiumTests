@@ -27,6 +27,54 @@ This is used to verify specific HTML features and workarounds in Awesomium in Ga
 * Doesn't support javascript template strings, default parameter values, `let`
 * Doesn't properly implement `.toLocaleDateString` (doesn't seem to support any parameters)
 * Doesn't support inline SVGs
+* Requires webkit for CSS gradients
+    * https://webkit.org/blog/175/introducing-css-gradients/
+    * [Example](https://gist.github.com/BadgerCode/30280286900542f9909925ca0b267f04)
+
+# Mixins
+These provide the required prefixes for specific HTML features.
+```css
+.noselect {
+    -khtml-user-select: none;
+    user-select: none;
+}
+
+.select {
+    -khtml-user-select: text;
+    user-select: text;
+}
+
+.flex {
+    display: -webkit-box;
+    display: flex;
+}
+
+.flex-direction-column {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    flex-direction: column;
+}
+
+.flex-grow {
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    -webkit-flex-shrink: 1;
+    flex-shrink: 1;
+    -webkit-flex-basis: 0;
+    flex-basis: 0;
+    /*flex: 1;*/
+}
+
+.transition-all-1s-linear {
+    -webkit-transition: all 1s ease-out;
+    transition: all 1s linear;
+}
+
+.gradient-red-to-green-row {
+    background: -webkit-gradient(linear, left top, right top, from(#8c230c), to(#588c01));
+    background: linear-gradient(to right, #8c230c, #588c01);
+}
+```
 
 
 # In-game tests

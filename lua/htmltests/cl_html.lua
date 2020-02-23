@@ -46,7 +46,7 @@ HTMLTESTS_HTML = [===[
       display: flex;
     }
 
-    .flex-column {
+    .flex-direction-column {
       -webkit-box-direction: normal;
       -webkit-box-orient: vertical;
       flex-direction: column;
@@ -65,6 +65,11 @@ HTMLTESTS_HTML = [===[
     .transition-all-1s-linear {
       -webkit-transition: all 1s ease-out;
       transition: all 1s linear;
+    }
+
+    .gradient-red-to-green-row {
+      background: -webkit-gradient(linear, left top, right top, from(#8c230c), to(#588c01));
+      background: linear-gradient(to right, #8c230c, #588c01);
     }
   </style>
 
@@ -126,7 +131,7 @@ HTMLTESTS_HTML = [===[
 </head>
 
 <body>
-  <div class="flex flex-column" style="height: 100%">
+  <div class="flex flex-direction-column" style="height: 100%">
     <div class="flex-grow" style="background: green;padding:10px;overflow:auto">
       <div id="custom-select"></div>
       <div>You have selected: <span id="custom-select-value"></span></div>
@@ -154,7 +159,9 @@ HTMLTESTS_HTML = [===[
       </div>
       <div style="display: inline-block">
         Rotated
-        <div style="-webkit-transform: rotate(45deg);transform: rotate(45deg);width:25px;height:25px;background-color: white;margin-top: 10px;margin-left:10px;"></div>
+        <div
+          style="-webkit-transform: rotate(45deg);transform: rotate(45deg);width:25px;height:25px;background-color: white;margin-top: 10px;margin-left:10px;">
+        </div>
       </div>
     </div>
     <div class="flex-grow" style="background: red;padding:10px;overflow:auto">
